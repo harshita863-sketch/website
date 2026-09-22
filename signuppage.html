@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Signup Page</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: purple;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+    }
+
+    .signup-box {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      text-align: center;
+      width: 300px;
+      box-shadow: 0px 0px 10px rgba(0,0,0,0.3);
+    }
+
+    .signup-box img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin-bottom: 15px;
+    }
+
+    .signup-box h2 {
+      margin-bottom: 20px;
+      color: purple;
+    }
+
+    .signup-box input {
+      width: 90%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .signup-box button {
+      width: 100%;
+      padding: 10px;
+      background-color: purple;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .signup-box button:hover {
+      background-color: #5a005a;
+    }
+  </style>
+</head>
+<body>
+  <div class="signup-box">
+    <img src="https://cdn5.vectorstock.com/i/1000x1000/79/79/beautiful-woman-shopping-composed-in-a-circle-vector-6157979.jpg" alt="Logo">
+    <h2>Create Account</h2>
+
+    <form id="signupForm">
+      <input type="text" id="newUsername" placeholder="Enter Username" required><br>
+      <input type="password" id="newPassword" placeholder="Enter Password" required><br>
+      <input type="password" id="confirmPassword" placeholder="Confirm Password" required><br>
+      <button type="submit">Register</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("signupForm").addEventListener("submit", function(event){
+      event.preventDefault();
+
+      let user = document.getElementById("newUsername").value;
+      let pass = document.getElementById("newPassword").value;
+      let confirmPass = document.getElementById("confirmPassword").value;
+
+      if(pass !== confirmPass){
+        alert("Passwords do not match!");
+      } else {
+        // For demo: redirect directly to dashboard
+        window.location.href = "dahboard.html";
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login Page</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: rgb(237, 119, 237);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+    }
+    .login-box {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      text-align: center;
+      width: 300px;
+      box-shadow: 0px 0px 10px rgba(0,0,0,0.3);
+    }
+    .login-box img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin-bottom: 15px;
+    }
+    .login-box h2 {
+      margin-bottom: 20px;
+      color: purple;
+    }
+    .login-box input {
+      width: 90%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .login-box button {
+      width: 100%;
+      padding: 10px;
+      background-color: purple;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .login-box button:hover {
+      background-color: #5a005a;
+    }
+    .register-link {
+      margin-top: 10px;
+      font-size: 14px;
+    }
+    .register-link a {
+      color: purple;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-box">
+    <img src="https://cdn5.vectorstock.com/i/1000x1000/79/79/beautiful-woman-shopping-composed-in-a-circle-vector-6157979.jpg" alt="Logo">
+    <h2>WELCOME USER</h2>
+
+    <form id="loginForm">
+      <input type="text" id="username" placeholder="Enter Username" required><br>
+      <input type="password" id="password" placeholder="Enter Password" required><br>
+      <button type="submit">Login</button>
+    </form>
+
+    <div class="register-link">
+      If not have an account <a href="signuppage.html">Register here</a>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", function(event){
+      event.preventDefault();
+
+      let user = document.getElementById("username").value;
+      let pass = document.getElementById("password").value;
+
+      // Default credentials
+      if(user === "admin" && pass === "1234"){
+        window.location.href = "dahboard.html"; 
+        return;
+      }
+
+      // LocalStorage credentials
+      let storedUser = localStorage.getItem("username");
+      let storedPass = localStorage.getItem("password");
+
+      if(user === storedUser && pass === storedPass){
+        window.location.href = "dahboard.html"; 
+      } else {
+        alert("Invalid username or password!");
+      }
+    });
+  </script>
+</body>
+</html>
