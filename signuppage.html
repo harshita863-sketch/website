@@ -6,7 +6,7 @@
     body {
       margin: 0;
       padding: 0;
-      background-color: purple;
+      background-color: #ED77ED;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -20,7 +20,7 @@
       border-radius: 10px;
       text-align: center;
       width: 300px;
-      box-shadow: 0px 0px 10px rgba(0,0,0,0.3);
+      box-shadow: 0px 0px 10px rgb(2, 1, 1);
     }
 
     .signup-box img {
@@ -79,11 +79,14 @@
       let user = document.getElementById("newUsername").value;
       let pass = document.getElementById("newPassword").value;
       let confirmPass = document.getElementById("confirmPassword").value;
+      
 
       if(pass !== confirmPass){
         alert("Passwords do not match!");
       } else {
-        // For demo: redirect directly to dashboard
+        localStorage.setItem("username", user);
+        localStorage.setItem("password", pass);
+        
         window.location.href = "dahboard.html";
       }
     });
